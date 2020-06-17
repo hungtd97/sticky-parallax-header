@@ -137,7 +137,7 @@ class ScrollableTabBar extends React.PureComponent {
                 onPress={() => this.goToPage(page)}
               >
                 <View style={[styles.tabContainer, tabTextContainerStyle, isTabActive && tabTextContainerActiveStyle]}>
-                  <Text
+                  {tab.activeIcon ? <Image source={isTabActive ? tab.activeIcon : tab.inactiveIcon} resizeMode="contain" /> : <Text
                     // eslint-disable-next-line no-return-assign
                     onLayout={({
                       nativeEvent: {
@@ -153,7 +153,7 @@ class ScrollableTabBar extends React.PureComponent {
                     style={[styles.tabText, tabTextStyle, isTabActive && tabTextActiveStyle]}
                   >
                     {tab.title}
-                  </Text>
+                  </Text>}
                 </View>
               </TouchableOpacity>
             )

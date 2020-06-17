@@ -105,10 +105,10 @@ export default class TabbedHeader extends React.Component {
 
     const renderImage = () => {
       const logo = isUndefined(foregroundImage)
-      ? require('../../assets/images/photosPortraitMe.png')
-      : foregroundImage
+        ? require('../../assets/images/photosPortraitMe.png')
+        : foregroundImage
 
-      if(foregroundImage !== null){
+      if (foregroundImage !== null) {
         return (
           <Animated.View style={{ opacity: imageOpacity }}>
             <Animated.Image
@@ -177,7 +177,8 @@ export default class TabbedHeader extends React.Component {
       tabWrapperStyle,
       tabsContainerStyle,
       parallaxHeight,
-      renderCustomHeader
+      renderCustomHeader,
+      onChangeTab
     } = this.props
 
     return (
@@ -188,10 +189,11 @@ export default class TabbedHeader extends React.Component {
           header={this.renderHeader()}
           deviceWidth={constants.deviceWidth}
           parallaxHeight={parallaxHeight}
-          scrollEvent={event([{ nativeEvent: { contentOffset: { y: this.scrollY.y } } }], {useNativeDriver: false, listener: e => scrollEvent && scrollEvent(e)})}
+          scrollEvent={event([{ nativeEvent: { contentOffset: { y: this.scrollY.y } } }], { useNativeDriver: false, listener: e => scrollEvent && scrollEvent(e) })}
           headerSize={this.setHeaderSize}
           headerHeight={headerHeight}
           tabs={tabs}
+          onChangeTab={onChangeTab}
           tabTextStyle={tabTextStyle}
           renderCustomHeader={renderCustomHeader}
           tabTextActiveStyle={tabTextActiveStyle}
