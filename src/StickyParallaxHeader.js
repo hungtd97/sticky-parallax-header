@@ -302,7 +302,9 @@ class StickyParallaxHeader extends Component {
       parallaxHeight,
       tabs,
       bounces,
-      scrollEvent
+      scrollEvent,
+      isSetHeightManual,
+      heightManual
     } = this.props
     const { currentPage, isFolded } = this.state
     const scrollHeight = Math.max(parallaxHeight, headerHeight * 2)
@@ -372,6 +374,8 @@ class StickyParallaxHeader extends Component {
             scrollRef={this.scroll}
             scrollHeight={scrollHeight}
             isHeaderFolded={isFolded}
+            isSetHeightManual={isSetHeightManual}
+            heightManual={heightManual}
           >
             {!tabs && children}
             {tabs &&

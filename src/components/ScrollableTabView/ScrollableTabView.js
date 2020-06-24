@@ -157,7 +157,7 @@ class ScrollableTabView extends React.Component {
     return newKeys
   }
 
-  updateSceneKeys = ({ page, children = this.props.children, callback = () => {} }) => {
+  updateSceneKeys = ({ page, children = this.props.children, callback = () => { } }) => {
     const { sceneKeys } = this.state
     const newKeys = this.newSceneKeys({ previousKeys: sceneKeys, currentPage: page, children })
     this.setState({ currentPage: page, sceneKeys: newKeys }, callback)
@@ -235,8 +235,11 @@ class ScrollableTabView extends React.Component {
   }
 
   render() {
+    const {
+      isSetHeightManual,
+      heightManual } = this.props
     return (
-      <View style={styles.container} onLayout={this.handleLayout}>
+      <View style={[styles.container, isSetHeightManual ? { height: heightManual } : {}]} onLayout={this.handleLayout}>
         {this.renderScrollableContent()}
       </View>
     )
@@ -257,7 +260,7 @@ ScrollableTabView.propTypes = {
 ScrollableTabView.defaultProps = {
   initialPage: 0,
   page: -1,
-  onChangeTab: () => {}
+  onChangeTab: () => { }
 }
 
 export default ScrollableTabView

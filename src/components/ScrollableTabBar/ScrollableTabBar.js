@@ -1,7 +1,7 @@
 /* eslint-disable react/forbid-prop-types */
 /* eslint-disable no-return-assign */
 import React from 'react'
-import { Animated, Text, TouchableOpacity, View, ScrollView, ViewPropTypes } from 'react-native'
+import { Animated, Text, TouchableOpacity, View, ScrollView, ViewPropTypes, Image } from 'react-native'
 import { array, func, number, object, shape, string } from 'prop-types'
 import { constants } from '../../constants'
 import styles from './ScrollableTabBar.styles'

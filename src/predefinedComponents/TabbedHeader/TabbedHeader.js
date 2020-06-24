@@ -178,7 +178,10 @@ export default class TabbedHeader extends React.Component {
       tabsContainerStyle,
       parallaxHeight,
       renderCustomHeader,
-      onChangeTab
+      onChangeTab,
+      onEndReached,
+      isSetHeightManual,
+      heightManual
     } = this.props
 
     return (
@@ -193,7 +196,10 @@ export default class TabbedHeader extends React.Component {
           headerSize={this.setHeaderSize}
           headerHeight={headerHeight}
           tabs={tabs}
+          onEndReached={onEndReached}
+          isSetHeightManual={isSetHeightManual}
           onChangeTab={onChangeTab}
+          onEndReached={onEndReached}
           tabTextStyle={tabTextStyle}
           renderCustomHeader={renderCustomHeader}
           tabTextActiveStyle={tabTextActiveStyle}
@@ -235,7 +241,9 @@ TabbedHeader.propTypes = {
   tabsContainerStyle: ViewPropTypes.style,
   foregroundImage: Image.propTypes.source,
   titleStyle: Text.propTypes.style,
-  header: func
+  header: func,
+  isSetHeightManual: bool,
+  heightManual: number
 }
 
 TabbedHeader.defaultProps = {
